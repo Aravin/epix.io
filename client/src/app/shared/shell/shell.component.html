@@ -1,0 +1,66 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" (click)="drawer.close()">Link 1</a>
+      <a mat-list-item routerLink="/" (click)="drawer.close()">Link 2</a>
+      <a mat-list-item routerLink="/" (click)="drawer.close()">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+
+        <!-- Logo -->
+        <span class="logo" routerLink="/">🌐 epix.io</span>
+
+        <!-- main menu items-->
+        <span class="fill-space"></span>
+        <div *ngIf="!(isHandset$ | async)">
+          <a mat-button routerLink="/crypto/hash">🔐 Crpto</a>
+          <a mat-button routerLink="/customers">⚡ SSR Demo</a>
+          <a mat-button routerLink="/login">🔑 Login</a>
+
+        </div>
+
+        <!-- DROPDOWN MENU -->
+
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+          <a mat-menu-item href="https://fireship.page.link/slack">
+            <i>💬</i>
+            <span>Contact Us</span>
+          </a>
+        </mat-menu>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row class="breadcrum">
+        <span>Page Name</span>
+      </mat-toolbar-row>
+
+    </mat-toolbar>
+
+    <!-- Add Content Here -->
+    <!-- TRANSCLUSION -->
+
+    <!-- <mat-sidenav-container class="inner-sidebar-container" *ngIf="!(isHandset$ | async) && !isHomePage">
+      <mat-sidenav #sidenav mode="side" opened class="inner-sidebar-sidenav">
+      </mat-sidenav>
+      <mat-sidenav-content>
+      </mat-sidenav-content>
+    </mat-sidenav-container> -->
+
+
+
+    <ng-content>
+    </ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
