@@ -15,7 +15,7 @@ import { FeaturesModule } from './features/features.module';
     HomeComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
