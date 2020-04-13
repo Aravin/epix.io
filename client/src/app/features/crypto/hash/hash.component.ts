@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import {  FormBuilder, FormGroup } from '@angular/forms';
 import * as crypto from 'crypto-js';
 
 @Component({
@@ -10,68 +10,21 @@ import * as crypto from 'crypto-js';
 export class HashComponent implements OnInit {
 
   hashForm: FormGroup;
+  // defaultDigest = 'MD5';
+  // defaultEncoding = 'Hex';
 
-  hashes = ['RSA-MD4',
-    'RSA-MD5',
-    'RSA-MDC2',
-    'RSA-RIPEMD160',
-    'RSA-SHA1',
-    'RSA-SHA1-2',
-    'RSA-SHA224',
-    'RSA-SHA256',
-    'RSA-SHA3-224',
-    'RSA-SHA3-256',
-    'RSA-SHA3-384',
-    'RSA-SHA3-512',
-    'RSA-SHA384',
-    'RSA-SHA512',
-    'RSA-SHA512/224',
-    'RSA-SHA512/256',
-    'RSA-SM3',
-    'blake2b512',
-    'blake2s256',
-    'id-rsassa-pkcs1-v1_5-with-sha3-224',
-    'id-rsassa-pkcs1-v1_5-with-sha3-256',
-    'id-rsassa-pkcs1-v1_5-with-sha3-384',
-    'id-rsassa-pkcs1-v1_5-with-sha3-512',
-    'md4',
-    'md4WithRSAEncryption',
-    'md5',
-    'md5-sha1',
-    'md5WithRSAEncryption',
-    'mdc2',
-    'mdc2WithRSA',
-    'ripemd',
-    'ripemd160',
-    'ripemd160WithRSA',
-    'rmd160',
-    'sha1',
-    'sha1WithRSAEncryption',
-    'sha224',
-    'sha224WithRSAEncryption',
-    'sha256',
-    'sha256WithRSAEncryption',
-    'sha3-224',
-    'sha3-256',
-    'sha3-384',
-    'sha3-512',
-    'sha384',
-    'sha384WithRSAEncryption',
-    'sha512',
-    'sha512-224',
-    'sha512-224WithRSAEncryption',
-    'sha512-256',
-    'sha512-256WithRSAEncryption',
-    'sha512WithRSAEncryption',
-    'shake128',
-    'shake256',
-    'sm3',
-    'sm3WithRSAEncryption',
-    'ssl3-md5',
-    'ssl3-sha1',
-    'whirlpool'];
+  hashes = [
+    'MD5',
+    'SHA1',
+    'SHA256',
+    'SHA224',
+    'SHA512',
+    'SHA384',
+    'SHA3',
+    'RIPEMD160'
+  ];
 
-  encodings = ['ascii', 'base64', 'hex', 'utf-8', 'utf-16l2', 'binary'];
+  encodings = ['Base64', 'Hex', /* 'Utf8', */ 'Utf16', 'Utf16LE', 'Latin1'];
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -84,11 +37,84 @@ export class HashComponent implements OnInit {
       hashText: '',
     });
 
-    // this.onChanges();
+    this.hashForm.get('digestMethod').setValue('MD5');
+    this.hashForm.get('encodingType').setValue('Hex');
   }
 
-  onChanges(): void {
-    console.log('onchange called.')
+  onSubmit(form: any): void {
+
+    let hashedText: crypto.WordArray;
+    let finalText = '';
+
+    if (form && form.digestMethod && form.encodingType) {
+      switch (form.digestMethod) {
+        case 'MD5': {
+          hashedText = crypto.MD5(form.plainText);
+          break;
+        }
+        case 'SHA1': {
+          hashedText = crypto.SHA1(form.plainText);
+          break;
+        }
+        case 'SHA256': {
+          hashedText = crypto.SHA256(form.plainText);
+          break;
+        }
+        case 'SHA224': {
+          hashedText = crypto.SHA224(form.plainText);
+          break;
+        }
+        case 'SHA512': {
+          hashedText = crypto.SHA512(form.plainText);
+          break;
+        }
+        case 'SHA384': {
+          hashedText = crypto.SHA384(form.plainText);
+          break;
+        }
+        case 'SHA3': {
+          hashedText = crypto.SHA3(form.plainText);
+          break;
+        }
+        case 'RIPEMD160': {
+          hashedText = crypto.RIPEMD160(form.plainText);
+          break;
+        }
+      }
+
+      switch (form.encodingType) {
+        case 'Base64': {
+          finalText = hashedText.toString(crypto.enc.Base64);
+          break;
+        }
+        case 'Latin1': {
+          finalText = hashedText.toString(crypto.enc.Latin1);
+          break;
+        }
+        case 'Hex': {
+          finalText = hashedText.toString(crypto.enc.Hex);
+          break;
+        }
+        // case 'Utf8': {
+        //   finalText = hashedText.toString(crypto.enc.Utf8);
+        //   break;
+        // }
+        case 'Utf16': {
+          finalText = hashedText.toString(crypto.enc.Utf16);
+          break;
+        }
+        case 'Utf16LE': {
+          finalText = hashedText.toString(crypto.enc.Utf16LE);
+          break;
+        }
+      }
+    }
+
+    if (finalText) {
+      this.hashForm.patchValue({
+        hashText: finalText,
+      });
+    }
   }
 
 }
