@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "public",
+    "site": "epix-policy",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
