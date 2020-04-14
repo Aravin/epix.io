@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HashComponent } from './features/crypto/hash/hash.component';
 import { PasswordGeneratorComponent } from './features/crypto/password-generator/password-generator.component';
+import { SipCalculatorComponent } from './features/finance/sip-calculator/sip-calculator.component';
+import { EmiCalculatorComponent } from './features/finance/emi-calculator/emi-calculator.component';
 
 const routes: Routes = [
   {
@@ -18,7 +20,10 @@ const routes: Routes = [
     path: 'crypto/password-generator', component: PasswordGeneratorComponent, data: { title: 'Password Generator' }
   },
   {
-    path: 'sip-calculator', component: PasswordGeneratorComponent, data: { title: 'SIP Calculator' }
+    path: 'sip-calculator', component: SipCalculatorComponent, data: { title: 'SIP Calculator' }
+  },
+  {
+    path: 'emi-calculator', component: EmiCalculatorComponent, data: { title: 'EMI Calculator' }
   },
   {
     path: '**', component: HomeComponent,
