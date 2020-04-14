@@ -4,14 +4,14 @@ import { HomeComponent } from './home/home.component';
 import { HashComponent } from './features/crypto/hash/hash.component';
 
 const routes: Routes = [
-  // {
-  //   path: '', redirectTo: 'home', pathMatch: 'full'
-  // },
   {
-    path: '', component: HomeComponent,
+    path: '', redirectTo: 'home', pathMatch: 'full'
   },
   {
-    path: 'crypto/hash', component: HashComponent,
+    path: '', component: HomeComponent, data: { title: 'Home' }
+  },
+  {
+    path: 'crypto/hash', component: HashComponent, data: { title: 'Hash' }
   },
   {
     path: '**', component: HomeComponent,

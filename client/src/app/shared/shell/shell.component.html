@@ -1,66 +1,67 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="false">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item routerLink="/" (click)="drawer.close()">Link 1</a>
-      <a mat-list-item routerLink="/" (click)="drawer.close()">Link 2</a>
-      <a mat-list-item routerLink="/" (click)="drawer.close()">Link 3</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <mat-toolbar-row>
-        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-          *ngIf="isHandset$ | async">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button>
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand" >
+    <a class="navbar-item" href="/">
+      <!-- <img src="" width="112" height="28"> -->
+      <span style="font-weight: 900; font-size: x-large;">🌐 epix.io</span>
+    </a>
 
-        <!-- Logo -->
-        <span class="logo" routerLink="/">🌐 epix.io</span>
+    <a role="button" class="navbar-burger burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
 
-        <!-- main menu items-->
-        <span class="fill-space"></span>
-        <div *ngIf="!(isHandset$ | async)">
-          <a mat-button routerLink="/crypto/hash">🔐 Crpto</a>
-          <a mat-button routerLink="/customers">⚡ SSR Demo</a>
-          <a mat-button routerLink="/login">🔑 Login</a>
+  <div id="navMenu" class="navbar-menu">
+    <div class="navbar-end">
 
-        </div>
+      <a class="navbar-item">
+        Applications
+      </a>
 
-        <!-- DROPDOWN MENU -->
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Services
+        </a>
 
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-
-        <mat-menu #menu="matMenu">
-          <a mat-menu-item href="https://fireship.page.link/slack">
-            <i>💬</i>
-            <span>Contact Us</span>
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            About
           </a>
-        </mat-menu>
-      </mat-toolbar-row>
+          <a class="navbar-item">
+            Jobs
+          </a>
+          <a class="navbar-item">
+            Contact
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an issue
+          </a>
+        </div>
+      </div>
 
-      <mat-toolbar-row class="breadcrum">
-        <span>Page Name</span>
-      </mat-toolbar-row>
+    </div>
 
-    </mat-toolbar>
+    <!-- <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</nav>
 
-    <!-- Add Content Here -->
-    <!-- TRANSCLUSION -->
 
-    <!-- <mat-sidenav-container class="inner-sidebar-container" *ngIf="!(isHandset$ | async) && !isHomePage">
-      <mat-sidenav #sidenav mode="side" opened class="inner-sidebar-sidenav">
-      </mat-sidenav>
-      <mat-sidenav-content>
-      </mat-sidenav-content>
-    </mat-sidenav-container> -->
-
-
-
+<section class="section">
+  <div class="container">  
     <ng-content>
     </ng-content>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </div>
+</section>

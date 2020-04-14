@@ -20,7 +20,7 @@ import {MatSelectModule} from '@angular/material/select';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
+import { ActivatedRoute } from '@angular/router';
 
 const components = [
   ShellComponent
@@ -41,7 +41,7 @@ const modules = [
   MatInputModule,
   MatSelectModule,
   ReactiveFormsModule,
-  FormsModule
+  FormsModule,
 ];
 
 
