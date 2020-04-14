@@ -4,6 +4,7 @@ import { HashComponent } from './crypto/hash/hash.component';
 import { SharedModule } from '../shared/shared.module';
 import { PasswordGeneratorComponent } from './crypto/password-generator/password-generator.component';
 import { SipCalculatorComponent } from './finance/sip-calculator/sip-calculator.component';
+import { EmiCalculatorComponent } from './finance/emi-calculator/emi-calculator.component';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { SipCalculatorComponent } from './finance/sip-calculator/sip-calculator.
     HashComponent,
     PasswordGeneratorComponent,
     SipCalculatorComponent,
+    EmiCalculatorComponent,
   ],
   imports: [
     CommonModule,
