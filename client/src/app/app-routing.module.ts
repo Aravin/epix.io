@@ -18,6 +18,9 @@ const routes: Routes = [
     path: 'crypto/password-generator', component: PasswordGeneratorComponent, data: { title: 'Password Generator' }
   },
   {
+    path: 'sip-calculator', component: PasswordGeneratorComponent, data: { title: 'SIP Calculator' }
+  },
+  {
     path: '**', component: HomeComponent,
   }
 ];

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { generate } from 'generate-password';
+// import { generate } from 'generate-password';
 
 @Component({
   selector: 'app-password-generator',
@@ -31,18 +31,18 @@ export class PasswordGeneratorComponent implements OnInit {
 
   onSubmit(form: any) {
 
-    const password = generate({
-      length: form.length,
-      lowercase: form.lowerCase,
-      uppercase: form.upperCase,
-      numbers: form.numeric,
-      symbols: form.specialCharacter,
-      excludeSimilarCharacters: form.excludeSimilarCharacters,
-      exclude: form.exclude,
-      strict: form.allCombination,
-    });
+    // const password = generate({
+    //   length: form.length,
+    //   lowercase: form.lowerCase,
+    //   uppercase: form.upperCase,
+    //   numbers: form.numeric,
+    //   symbols: form.specialCharacter,
+    //   excludeSimilarCharacters: form.excludeSimilarCharacters,
+    //   exclude: form.exclude,
+    //   strict: form.allCombination,
+    // });
 
-    this.generatedPassword = password || '';
+    // this.generatedPassword = password || '';
   }
 
 }
