@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HashComponent } from './features/crypto/hash/hash.component';
+import { PasswordGeneratorComponent } from './features/crypto/password-generator/password-generator.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,9 @@ const routes: Routes = [
   },
   {
     path: 'crypto/hash', component: HashComponent, data: { title: 'Hash' }
+  },
+  {
+    path: 'crypto/password-generator', component: PasswordGeneratorComponent, data: { title: 'Password Generator' }
   },
   {
     path: '**', component: HomeComponent,
