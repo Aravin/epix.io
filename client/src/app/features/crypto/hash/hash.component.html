@@ -1,5 +1,14 @@
 <div class="columns">
     <div class="column">
+        <h1 class="title">Hash (Hashing)</h1>
+        <h2 class="subtitle">Create MD5, SHA1, SHA256, SHA224, SHA512, SHA384, SHA3, RIPEMD160 hashes</h2>
+        <hr>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="column">
+        <h4 class="title is-4">Generate Hash</h4>
         <mat-card>
             <mat-card-content>
                 <form class="material-form" [formGroup]="hashForm" (ngSubmit)="onSubmit(hashForm.value)">
@@ -25,12 +34,16 @@
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
+
+                    <button mat-raised-button color="primary" type="submit">Generate Hash!</button>
+                    <br>
+
                     <mat-form-field class="material-full-width">
                         <textarea matInput placeholder="Hashed Text" formControlName="hashText"
                             readonly="readonly"></textarea>
                     </mat-form-field>
-                    <button mat-raised-button color="primary" type="submit">Generate Hash!</button>
                 </form>
+                
             </mat-card-content>
             <mat-card-actions>
             </mat-card-actions>
@@ -38,6 +51,21 @@
     </div>
 
     <div class="column">
-        hi
+        <h4 class="title is-4">About Hashing</h4>
+        <p>Hash is an irreversible function which generate unique value for each input. But same generate for the same input will be same. So, hash plays major role in the security i.e storing the passwords or any other keys. Even though the hash is irreversible, it can be used to compare the same. The output will be same if you generate hash for any times.</p>
+
+        <br>
+
+        <h5 class="title is-5">Example</h5>
+
+        plain text
+        <pre>
+            www.epix.io
+        </pre>
+
+        hash text
+        <pre>
+            sRcU5S6+Uyfcnv4LhSIOzw==
+        </pre>
     </div>
 </div>
