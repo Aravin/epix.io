@@ -35,14 +35,15 @@
                         </mat-select>
                     </mat-form-field>
 
-                    <button mat-raised-button color="primary" type="submit">Generate Hash!</button>
-                    <br>
-
-                    <mat-form-field class="material-full-width">
-                        <textarea matInput placeholder="Hashed Text" formControlName="hashText"
-                            readonly="readonly"></textarea>
-                    </mat-form-field>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="hashForm.invalid">Generate Hash!</button>
                 </form>
+
+                <br>
+                <pre>
+                    <code>
+                        {{ hashText }}
+                    </code>
+                </pre>
                 
             </mat-card-content>
             <mat-card-actions>
@@ -58,12 +59,12 @@
 
         <h5 class="title is-5">Example</h5>
 
-        plain text
+        Plain text
         <pre>
             www.epix.io
         </pre>
 
-        hash text
+        Hash text
         <pre>
             sRcU5S6+Uyfcnv4LhSIOzw==
         </pre>

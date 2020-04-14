@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {  FormBuilder, FormGroup } from '@angular/forms';
+import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as crypto from 'crypto-js';
 
 @Component({
   selector: 'app-hash',
   templateUrl: './hash.component.html',
-  styleUrls: ['./hash.component.scss']
 })
 export class HashComponent implements OnInit {
 
   hashForm: FormGroup;
-  // defaultDigest = 'MD5';
-  // defaultEncoding = 'Hex';
 
   hashes = [
     'MD5',
@@ -26,15 +23,16 @@ export class HashComponent implements OnInit {
 
   encodings = ['Base64', 'Hex', /* 'Utf8', */ 'Utf16', 'Utf16LE', 'Latin1'];
 
+  hashText: string;
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
 
     this.hashForm = this.formBuilder.group({
-      plainText:  '',
-      digestMethod: '',
-      encodingType: '',
-      hashText: '',
+      plainText:  ['', [Validators.required]],
+      digestMethod: ['', [Validators.required]],
+      encodingType: ['', [Validators.required]],
     });
 
     this.hashForm.get('digestMethod').setValue('MD5');
@@ -42,6 +40,10 @@ export class HashComponent implements OnInit {
   }
 
   onSubmit(form: any): void {
+
+    if (!form.plainText) {
+      return;
+    }
 
     let hashedText: crypto.WordArray;
     let finalText = '';
@@ -111,9 +113,7 @@ export class HashComponent implements OnInit {
     }
 
     if (finalText) {
-      this.hashForm.patchValue({
-        hashText: finalText,
-      });
+      this.hashText = finalText;
     }
   }
 
