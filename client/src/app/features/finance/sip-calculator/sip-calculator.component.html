@@ -1,1 +1,88 @@
-<p>sip-calculator works!</p>
+<!-- page heading -->
+<div class="columns">
+    <div class="column">
+        <h1 class="title">SIP Calculator</h1>
+        <h2 class="subtitle">Systematic Investment Plan</h2>
+        <hr>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="column">
+        <mat-card>
+            <mat-card-title>
+                Calculate
+            </mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="sipForm" class="material-form">
+                    <mat-form-field class="material-full-width">
+                        <mat-label>Investment Amount</mat-label>
+                        <input type="number" matInput formControlName="amount" placeholder="1 - 9999999999">
+                    </mat-form-field>
+
+                    <div>
+                        <mat-label>Frequency:  </mat-label>
+                        <mat-radio-group aria-label="Frequency" formControlName="frequency">
+                            <mat-radio-button value="12" >Monthly</mat-radio-button>
+                            <mat-radio-button value="4">Quarterly</mat-radio-button>
+                            <mat-radio-button value="1">Yearly</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <br>
+
+                    <div>
+                        <mat-label>Expected Annual Returns (%) - {{ sipForm.value.returns }} %</mat-label>
+                        <mat-slider formControlName="returns" min="5" max="30" step="0.5" value="10" thumbLabel
+                            thumbLabel="1" class="material-full-width"></mat-slider>
+                    </div>
+
+                    <div>
+                        <mat-label>Investment Period (in Years) {{ sipForm.value.tenure }} years</mat-label>
+                        <mat-slider formControlName="tenure" min="0.5" max="50" step="0.5" value="2" thumbLabel
+                            thumbLabel="1" class="material-full-width"></mat-slider>
+                    </div>
+
+                </form>
+
+                <br>
+
+                <table class="table is-striped is-bordered is-hoverable is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th colspan="2">SIP Calculations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Amount Invested</td>
+                            <td>{{ amountInvested || 0 | currency: 'INR' }}</td>
+                        </tr>
+                        <tr>
+                            <td>Value of Investment</td>
+                            <td> {{ sipValue || 0 | currency: 'INR' }}</td>
+                        </tr>
+                        <tr>
+                            <td>Wealth Gain</td>
+                            <td> {{ wealthGained || 0 | currency: 'INR' }} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="column">
+        <h4 class="title is-4">About SIP</h4>
+        <p>
+            Systematic Investment Plan (SIP) is an investment route offered by Mutual Funds wherein one can invest a
+            fixed amount in a Mutual Fund scheme at regular intervals– say once a month or once a quarter, instead of
+            making a lump-sum investment. The installment amount could be as little as INR 500 a month and is similar to
+            a recurring deposit. It’s convenient as you can give your bank standing instructions to debit the amount
+            every month.
+        </p>
+        <p>
+            more details can be found here: <a href="https://www.mutualfundssahihai.com/en/what-is-sip#"
+                target="_blank">https://www.mutualfundssahihai.com/en/what-is-sip#</a>
+        </p>
+    </div>
+</div>
