@@ -1,0 +1,130 @@
+<!-- page heading -->
+<div class="columns">
+  <div class="column">
+    <h1 class="title">HTTP Mock Response</h1>
+    <h2 class="subtitle">Sample RESTful Mock/Fake Request/Response</h2>
+    <hr>
+  </div>
+</div>
+
+
+<div class="columns">
+
+  <!-- column 1 -->
+  <div class="column">
+    <h4 class="title is-4">REST - CRUD Response</h4>
+
+    <mat-accordion class="accordion-headers-align">
+
+      <!-- panel -->
+      <mat-expansion-panel *ngFor="let method of httpMethods; let i = index">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ httpMethods[i] }}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{ httpResponse[i] }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="columns">
+          <div class="column">
+            <mat-card>
+              <mat-card-content>
+                <h3 class="mat-subheading-2">Path</h3>
+                <code>{{ mockUrl[i] | json }}</code>
+                <hr>
+                <h3 class="mat-subheading-2">Request Body</h3>
+                <pre>
+                  <code>
+                    {{ mockRequest[i] | json }}
+                  </code>
+                </pre>
+              </mat-card-content>
+            </mat-card>
+          </div>
+
+          <div class="column">
+            <mat-card>
+              <mat-card-content>
+                <h3 class="mat-subheading-2">Response Code</h3>
+                <code>{{ httpResponse[i] | json }}</code>
+                <hr>
+                <h3 class="mat-subheading-2">Response Body</h3>
+                <pre>
+                  <code>
+                    {{ mockResponse[i] | json }}
+                  </code>
+                </pre>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-expansion-panel>
+      <!-- end of panel -->
+
+    </mat-accordion>
+
+
+
+    <!-- <div class="tabs is-centered">
+      <ul>
+        <li class="is-active"><a>Create (POST)</a></li>
+        <li><a>Read (GET)</a></li>
+        <li><a>Update (PUT)</a></li>
+        <li><a>Update (PATCH)</a></li>
+        <li><a>Delete (DELETE)</a></li>
+      </ul>
+    </div> -->
+
+    <!-- <aside class="menu">
+      <p class="menu-label">
+        CREATE (POST)
+      </p>
+      <ul class="menu-list">
+        <li><a class="is-active">POST - Success</a></li>
+        <li><a>POST - 404 Not Found</a></li>
+        <li><a>POST - 409 Conflict</a></li>
+      </ul>
+      <p class="menu-label">
+        READ (GET)
+      </p>
+      <ul class="menu-list">
+        <li><a>GET - All - Success</a></li>
+        <li><a>GET - Single - Success</a></li>
+        <li><a>GET - Not Found</a></li>
+      </ul>
+
+      <p class="menu-label">
+        UPDATE (PUT)
+      </p>
+      <ul class="menu-list">
+        <li><a>PUT - Success</a></li>
+        <li><a>PUT - 204 No Content</a></li>
+        <li><a>PUT - 404 Not Found</a></li>
+        <li><a>PUT - 405 Method Not Allowed</a></li>
+      </ul>
+
+      <p class="menu-label">
+        UPDATE (PATCH)
+      </p>
+      <ul class="menu-list">
+        <li><a>PATCH - Success</a></li>
+        <li><a>PATCH - 204 No Content</a></li>
+        <li><a>PATCH - 404 Not Found</a></li>
+        <li><a>PATCH - 405 Method Not Allowed</a></li>
+      </ul>
+
+      <p class="menu-label">
+        DELETE (DELETE)
+      </p>
+      <ul class="menu-list">
+        <li><a>DELETE - Success</a></li>
+        <li><a>DELETE - 404 Not Found</a></li>
+        <li><a>DELETE - 405 Method Not Allowed</a></li>
+      </ul>
+
+    </aside> -->
+  </div>
+
+</div>

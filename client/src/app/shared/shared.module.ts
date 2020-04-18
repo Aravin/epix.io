@@ -19,6 +19,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatChipsModule} from '@angular/material/chips';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
@@ -45,11 +47,13 @@ const modules = [
   FormsModule,
   MatSliderModule,
   MatRadioModule,
+  MatExpansionModule,
+  MatChipsModule,
 ];
 
 
 @NgModule({
-  declarations: [...components],
+  declarations: [...components,],
   imports: [...modules],
   exports: [...components, ...modules],
 })

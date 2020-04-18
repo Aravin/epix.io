@@ -5,6 +5,7 @@ import { HashComponent } from './features/crypto/hash/hash.component';
 import { PasswordGeneratorComponent } from './features/crypto/password-generator/password-generator.component';
 import { SipCalculatorComponent } from './features/finance/sip-calculator/sip-calculator.component';
 import { EmiCalculatorComponent } from './features/finance/emi-calculator/emi-calculator.component';
+import { MockResponseComponent } from './features/http/mock-response/mock-response.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,9 @@ const routes: Routes = [
   },
   {
     path: 'emi-calculator', component: EmiCalculatorComponent, data: { title: 'EMI Calculator' }
+  },
+  {
+    path: 'http/mock-rest-response', component: MockResponseComponent, data: { title: 'Mock RESTful Response' }
   },
   {
     path: '**', component: HomeComponent,

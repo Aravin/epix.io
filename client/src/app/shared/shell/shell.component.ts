@@ -35,14 +35,5 @@ export class ShellComponent implements OnInit {
         });
       });
     }
-
-    this.routeData = this.route.data.subscribe(data => console.log(data));
-    this.route.data.subscribe(data => console.log(data));
-    console.log(this.route.snapshot.data.title)
-
-  }
-
-  onDestroy() {
-    this.routeData.unsubscribe();
   }
 }
