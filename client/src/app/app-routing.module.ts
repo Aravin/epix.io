@@ -7,13 +7,14 @@ import { SipCalculatorComponent } from './features/finance/sip-calculator/sip-ca
 import { EmiCalculatorComponent } from './features/finance/emi-calculator/emi-calculator.component';
 import { MockResponseComponent } from './features/http/mock-response/mock-response.component';
 import { StatusCodesComponent } from './features/http/status-codes/status-codes.component';
+import { MobileAppsComponent } from './features/apps/mobile-apps/mobile-apps.component';
 
 const routes: Routes = [
   {
     path: '', redirectTo: 'home', pathMatch: 'full'
   },
   {
-    path: '', component: HomeComponent, data: { title: 'Home' }
+    path: 'home', component: MobileAppsComponent, data: { title: 'Home' }
   },
   {
     path: 'crypto/hash', component: HashComponent, data: { title: 'Hash' }
@@ -35,6 +36,9 @@ const routes: Routes = [
   },
   {
     path: 'http/status-codes', component: StatusCodesComponent, data: { title: 'HTTP Status Codes' }
+  },
+  {
+    path: 'apps', component: MobileAppsComponent, data: { title: 'Android Mobile Application' }
   },
   {
     path: '**', component: HomeComponent,

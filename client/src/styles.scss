@@ -35,3 +35,23 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
+.emi-header-image {
+  background-image: url('assets/app-icon/emi.png');
+  background-size: cover;
+}
+
+.sip-header-image {
+  background-image: url('assets/app-icon/sip.png');
+  background-size: cover;
+}
+
+.whatsis-header-image {
+  background-image: url('assets/app-icon/whatsis.png');
+  background-size: cover;
+}
+
+.trai-header-image {
+  background-image: url('assets/app-icon/trai.png');
+  background-size: cover;
+}

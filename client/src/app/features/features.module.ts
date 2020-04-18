@@ -6,6 +6,8 @@ import { PasswordGeneratorComponent } from './crypto/password-generator/password
 import { SipCalculatorComponent } from './finance/sip-calculator/sip-calculator.component';
 import { EmiCalculatorComponent } from './finance/emi-calculator/emi-calculator.component';
 import { MockResponseComponent } from './http/mock-response/mock-response.component';
+import { StatusCodesComponent } from './http/status-codes/status-codes.component';
+import { MobileAppsComponent } from './apps/mobile-apps/mobile-apps.component';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { MockResponseComponent } from './http/mock-response/mock-response.compon
     SipCalculatorComponent,
     EmiCalculatorComponent,
     MockResponseComponent,
+    StatusCodesComponent,
+    MobileAppsComponent,
   ],
   imports: [
     CommonModule,
