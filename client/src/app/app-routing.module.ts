@@ -6,6 +6,7 @@ import { PasswordGeneratorComponent } from './features/crypto/password-generator
 import { SipCalculatorComponent } from './features/finance/sip-calculator/sip-calculator.component';
 import { EmiCalculatorComponent } from './features/finance/emi-calculator/emi-calculator.component';
 import { MockResponseComponent } from './features/http/mock-response/mock-response.component';
+import { StatusCodesComponent } from './features/http/status-codes/status-codes.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,13 @@ const routes: Routes = [
     path: 'emi-calculator', component: EmiCalculatorComponent, data: { title: 'EMI Calculator' }
   },
   {
+    path: 'http/rest', redirectTo: 'http/mock-rest-response', pathMatch: 'full'
+  },
+  {
     path: 'http/mock-rest-response', component: MockResponseComponent, data: { title: 'Mock RESTful Response' }
+  },
+  {
+    path: 'http/status-codes', component: StatusCodesComponent, data: { title: 'HTTP Status Codes' }
   },
   {
     path: '**', component: HomeComponent,
