@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { generate } from 'generate-password';
+import { generate } from 'generate-password-browser';
 
 @Component({
   selector: 'app-password-generator',
@@ -17,32 +17,34 @@ export class PasswordGeneratorComponent implements OnInit {
   ngOnInit() {
 
     this.passwordForm = this.formBuilder.group({
-      length:  ['', [Validators.required]],
-      lowerCase: [false],
+      length: [10, [Validators.required]],
       upperCase: [false],
       numeric: [false],
       specialCharacter: [false],
-      allCombination: [false],
       excludeSimilarCharacters: [false],
       exclude: [''],
-      noOfPassword: [1, [Validators.max[10]]]
+      allCombination: [false],
     });
+
+    this.onChange();
   }
 
-  onSubmit(form: any) {
+  onChange(): void {
 
-    // const password = generate({
-    //   length: form.length,
-    //   lowercase: form.lowerCase,
-    //   uppercase: form.upperCase,
-    //   numbers: form.numeric,
-    //   symbols: form.specialCharacter,
-    //   excludeSimilarCharacters: form.excludeSimilarCharacters,
-    //   exclude: form.exclude,
-    //   strict: form.allCombination,
-    // });
+    this.passwordForm.valueChanges.subscribe(form => {
+      console.log(form)
+      this.generatedPassword = generate({
+        length: form.length,
+        uppercase: form.upperCase,
+        numbers: form.numeric,
+        symbols: form.specialCharacter,
+        excludeSimilarCharacters: form.excludeSimilarCharacters,
+        exclude: form.exclude,
+        strict: form.allCombination,
+      });
 
-    // this.generatedPassword = password || '';
+    });
+
   }
 
 }
