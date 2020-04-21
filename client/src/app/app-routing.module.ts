@@ -8,6 +8,7 @@ import { EmiCalculatorComponent } from './features/finance/emi-calculator/emi-ca
 import { MockResponseComponent } from './features/http/mock-response/mock-response.component';
 import { StatusCodesComponent } from './features/http/status-codes/status-codes.component';
 import { MobileAppsComponent } from './features/apps/mobile-apps/mobile-apps.component';
+import { TermsPolicyComponent } from './pages/terms-policy/terms-policy.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,9 @@ const routes: Routes = [
   },
   {
     path: 'apps', component: MobileAppsComponent, data: { title: 'Android Mobile Application' }
+  },
+  {
+    path: 'terms-policy', component: TermsPolicyComponent, data: { title: 'Terms and Privacy Policy' }
   },
   {
     path: '**', component: HomeComponent,

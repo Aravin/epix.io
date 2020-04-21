@@ -24,6 +24,7 @@ import {MatChipsModule} from '@angular/material/chips';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { TermsPolicyComponent } from '../pages/terms-policy/terms-policy.component';
 
 const components = [
   ShellComponent
@@ -53,7 +54,7 @@ const modules = [
 
 
 @NgModule({
-  declarations: [...components,],
+  declarations: [...components, TermsPolicyComponent,],
   imports: [...modules],
   exports: [...components, ...modules],
 })
