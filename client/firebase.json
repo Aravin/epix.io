@@ -10,7 +10,10 @@
 	"rewrites": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "run": {
+          "serviceId": "epix-io-client",
+          "region": "us-central1" 
+        }
       }
     ]
   }
