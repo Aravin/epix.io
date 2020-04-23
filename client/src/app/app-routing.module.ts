@@ -9,6 +9,7 @@ import { MockResponseComponent } from './features/http/mock-response/mock-respon
 import { StatusCodesComponent } from './features/http/status-codes/status-codes.component';
 import { MobileAppsComponent } from './features/apps/mobile-apps/mobile-apps.component';
 import { TermsPolicyComponent } from './pages/terms-policy/terms-policy.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,9 @@ const routes: Routes = [
   },
   {
     path: 'terms-policy', component: TermsPolicyComponent, data: { title: 'Terms and Privacy Policy' }
+  },
+  {
+    path: 'contact', component: ContactComponent, data: { title: 'Contact' }
   },
   {
     path: '**', component: HomeComponent,
