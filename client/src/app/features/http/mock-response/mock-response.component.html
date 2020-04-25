@@ -1,73 +1,76 @@
-<!-- page heading -->
-<div class="columns">
-  <div class="column">
-    <h1 class="title">HTTP Mock Response</h1>
-    <h2 class="subtitle">Sample RESTful Mock/Fake Request/Response</h2>
-    <hr>
-  </div>
-</div>
+<section class="section">
+  <div class="container">
+
+    <!-- page heading -->
+    <div class="columns">
+      <div class="column">
+        <h1 class="title">HTTP Mock Response</h1>
+        <h2 class="subtitle">Sample RESTful Mock/Fake Request/Response</h2>
+        <hr>
+      </div>
+    </div>
 
 
-<div class="columns">
+    <div class="columns">
 
-  <!-- column 1 -->
-  <div class="column">
-    <h4 class="title is-4">REST - CRUD Response</h4>
+      <!-- column 1 -->
+      <div class="column">
+        <h4 class="title is-4">REST - CRUD Response</h4>
 
-    <mat-accordion class="accordion-headers-align">
+        <mat-accordion class="accordion-headers-align">
 
-      <!-- panel -->
-      <mat-expansion-panel *ngFor="let method of httpMethods; let i = index">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{ httpMethods[i] }}
-          </mat-panel-title>
-          <mat-panel-description>
-            {{ httpResponse[i] }}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+          <!-- panel -->
+          <mat-expansion-panel *ngFor="let method of httpMethods; let i = index">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ httpMethods[i] }}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{ httpResponse[i] }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
 
-        <div class="columns">
-          <div class="column">
-            <mat-card>
-              <mat-card-content>
-                <h3 class="mat-subheading-2">Path</h3>
-                <code>{{ mockUrl[i] | json }}</code>
-                <hr>
-                <h3 class="mat-subheading-2">Request Body</h3>
-                <pre>
+            <div class="columns">
+              <div class="column">
+                <mat-card>
+                  <mat-card-content>
+                    <h3 class="mat-subheading-2">Path</h3>
+                    <code>{{ mockUrl[i] | json }}</code>
+                    <hr>
+                    <h3 class="mat-subheading-2">Request Body</h3>
+                    <pre>
                   <code>
                     {{ mockRequest[i] | json }}
                   </code>
                 </pre>
-              </mat-card-content>
-            </mat-card>
-          </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
 
-          <div class="column">
-            <mat-card>
-              <mat-card-content>
-                <h3 class="mat-subheading-2">Response Code</h3>
-                <code>{{ httpResponse[i] | json }}</code>
-                <hr>
-                <h3 class="mat-subheading-2">Response Body</h3>
-                <pre>
+              <div class="column">
+                <mat-card>
+                  <mat-card-content>
+                    <h3 class="mat-subheading-2">Response Code</h3>
+                    <code>{{ httpResponse[i] | json }}</code>
+                    <hr>
+                    <h3 class="mat-subheading-2">Response Body</h3>
+                    <pre>
                   <code>
                     {{ mockResponse[i] | json }}
                   </code>
                 </pre>
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </div>
-      </mat-expansion-panel>
-      <!-- end of panel -->
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <!-- end of panel -->
 
-    </mat-accordion>
+        </mat-accordion>
 
 
 
-    <!-- <div class="tabs is-centered">
+        <!-- <div class="tabs is-centered">
       <ul>
         <li class="is-active"><a>Create (POST)</a></li>
         <li><a>Read (GET)</a></li>
@@ -77,7 +80,7 @@
       </ul>
     </div> -->
 
-    <!-- <aside class="menu">
+        <!-- <aside class="menu">
       <p class="menu-label">
         CREATE (POST)
       </p>
@@ -125,6 +128,9 @@
       </ul>
 
     </aside> -->
+      </div>
+
+    </div>
   </div>
 
-</div>
+</section>

@@ -1,65 +1,73 @@
-<!-- page heading -->
-<div class="columns">
-    <div class="column">
-        <h1 class="title">EMI Calculator</h1>
-        <h2 class="subtitle">Personal, Home, Car Loan</h2>
-        <hr>
+<section class="section">
+    <div class="container">
+        <!-- page heading -->
+        <div class="columns">
+            <div class="column">
+                <h1 class="title">EMI Calculator</h1>
+                <h2 class="subtitle">Personal, Home, Car Loan</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column">
+                <mat-card>
+                    <mat-card-title>
+                        Calculate
+                    </mat-card-title>
+                    <mat-card-content>
+                        <form [formGroup]="emiForm" class="material-form">
+                            <mat-form-field class="material-full-width">
+                                <mat-label>Loan Amount</mat-label>
+                                <input type="number" matInput formControlName="amount" placeholder="1 - 9999999999">
+                            </mat-form-field>
+
+                            <mat-label>Loan Interest (in %) - {{ emiForm.value.interest }} %</mat-label>
+                            <mat-slider formControlName="interest" min="1" max="36" step="0.5" value="10" thumbLabel
+                                thumbLabel="1" class="material-full-width"></mat-slider>
+
+                            <mat-label>Loan Tenure (in year) {{ emiForm.value.tenure }} years</mat-label>
+                            <mat-slider formControlName="tenure" min="0.5" max="30" step="0.5" value="2" thumbLabel
+                                thumbLabel="1" class="material-full-width"></mat-slider>
+
+                        </form>
+
+                        <br>
+
+                        <table class="table is-striped is-bordered is-hoverable is-fullwidth">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">EMI Calculations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Monthly EMI</td>
+                                    <td>{{ monthlyEmi || 0 | currency: 'INR'  }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Payment (EMI)</td>
+                                    <td> {{ totalEMI || 0 | currency: 'INR' }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Interest</td>
+                                    <td> {{ totalInterest || 0 | currency: 'INR' }} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="column">
+                <h4 class="title is-4">About EMI</h4>
+                <p>
+                    EMI stands for Equated Monthly Iinstallment.
+                    A fixed payment amount made by a borrower to a lender at a specified date each calendar month.
+                    Equated monthly installments are used to pay off both interest and principal each month, so that
+                    over a specified number of years, the loan is fully paid off along with interest.
+                </p>
+            </div>
+        </div>
     </div>
-</div>
-
-<div class="columns">
-    <div class="column">
-        <mat-card>
-            <mat-card-title>
-                Calculate
-            </mat-card-title>
-            <mat-card-content>
-                <form [formGroup]="emiForm" class="material-form">
-                    <mat-form-field class="material-full-width">
-                        <mat-label>Loan Amount</mat-label>
-                        <input type="number" matInput formControlName="amount" placeholder="1 - 9999999999">
-                    </mat-form-field>
-
-                    <mat-label>Loan Interest (in %) - {{ emiForm.value.interest }} %</mat-label>
-                    <mat-slider formControlName="interest" min="1" max="36" step="0.5" value="10" thumbLabel thumbLabel="1" class="material-full-width"></mat-slider>
-
-                    <mat-label>Loan Tenure (in year) {{ emiForm.value.tenure }} years</mat-label>
-                    <mat-slider formControlName="tenure" min="0.5" max="30" step="0.5" value="2" thumbLabel thumbLabel="1" class="material-full-width"></mat-slider>
-
-                </form>
-
-                <br>
-
-                <table class="table is-striped is-bordered is-hoverable is-fullwidth">
-                    <thead>
-                        <tr>
-                            <th colspan="2">EMI Calculations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Monthly EMI</td>
-                            <td>{{ monthlyEmi || 0 | currency: 'INR'  }}</td>
-                        </tr>
-                        <tr>
-                            <td>Total Payment (EMI)</td>
-                            <td> {{ totalEMI || 0 | currency: 'INR' }}</td>
-                        </tr>
-                        <tr>
-                            <td>Total Interest</td>
-                            <td> {{ totalInterest || 0 | currency: 'INR' }} </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </mat-card-content>
-        </mat-card>
-    </div>
-
-    <div class="column">
-        <h4 class="title is-4">About EMI</h4>
-        <p>
-            EMI stands for Equated Monthly Iinstallment.
-A fixed payment amount made by a borrower to a lender at a specified date each calendar month. Equated monthly installments are used to pay off both interest and principal each month, so that over a specified number of years, the loan is fully paid off along with interest.
-        </p>
-    </div>
-</div>
+</section>
