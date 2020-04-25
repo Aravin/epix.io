@@ -165,6 +165,19 @@
             ,              "optimization": true
 }
           }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "epix-io:build",
+            "serverTarget": "epix-io:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "epix-io:build:production",
+              "serverTarget": "epix-io:server:production"
+            }
+          }
         }
       }
     }
