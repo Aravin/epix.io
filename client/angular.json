@@ -146,38 +146,6 @@
               "devServerTarget": "epix-io:serve:production"
             }
           }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/server",
-            "main": "src/main.server.ts",
-            "tsConfig": "tsconfig.server.json"
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            ,              "optimization": true
-}
-          }
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "options": {
-            "browserTarget": "epix-io:build",
-            "serverTarget": "epix-io:server"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "epix-io:build:production",
-              "serverTarget": "epix-io:server:production"
-            }
-          }
         }
       }
     }
