@@ -13,9 +13,10 @@
     "serve:ssr": "node dist/epix-io/server/main.js",
     "build:ssr": "ng build --prod && ng run epix-io:server:production",
     "build:client-and-server-bundles": "ng build --prod && ng run epix-io:server:production",
-    "publish": "firebase deploy --only hosting",
     "dev:ssr": "ng run epix-io:serve-ssr",
-    "prerender": "ng run epix-io:prerender"
+    "prerender": "ng run epix-io:prerender",
+    "publish": "firebase deploy --only hosting",
+    "docker": "gcloud builds submit --tag gcr.io/epix-next/epix-ssr"
   },
   "private": true,
   "dependencies": {

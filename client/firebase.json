@@ -1,16 +1,19 @@
 {
   "hosting": {
-    "public": "dist/browser",
-	"site": "epix-beta",
+    "public": "dist/epix-io/browser",
+    "site": "epix-beta",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-	"rewrites": [
+    "rewrites": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "run": {
+          "serviceId": "epix-next",
+          "region": "us-central1"
+        }
       }
     ]
   }
