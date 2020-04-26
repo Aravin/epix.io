@@ -11,7 +11,7 @@
       {
         "source": "**",
         "run": {
-          "serviceId": "epix-next",
+          "serviceId": "epix-ssr",
           "region": "us-central1"
         }
       }
