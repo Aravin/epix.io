@@ -11,6 +11,11 @@ import { FeaturesModule } from './features/features.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+// firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +23,8 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -25,7 +32,10 @@ import { environment } from '../environments/environment';
     FeaturesModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [],
+  providers: [
+    ScreenTrackingService,
+    UserTrackingService,
+  ],
   bootstrap: [AppComponent],
   exports: []
 })
