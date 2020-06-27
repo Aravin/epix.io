@@ -19,16 +19,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@koa/cors": "^3.1.0",
     "@sendgrid/mail": "^7.2.1",
     "@types/koa-router": "^7.4.1",
     "dotenv": "^8.2.0",
     "firebase-admin": "^8.12.1",
     "firebase-functions": "^3.7.0",
     "koa": "^2.13.0",
-    "koa-router": "^9.0.1"
+    "koa-router": "^9.0.1",
+    "moment": "^2.27.0"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
-    "@types/koa": "^2.11.3"
+    "@types/koa": "^2.11.3",
+    "@types/koa__cors": "^3.0.1"
   }
 }

@@ -1,19 +1,16 @@
 {
-  "hosting": {
-    "site": "api-v1-epix",
-    "public": "api/dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "api"
-      }
-    ]
-  },
+  "hosting": [
+    {
+      "site": "api-v1-epix",
+      "public": "api/dist",
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "api"
+        }
+      ]
+    }
+  ],
   "functions": {
     "source": "api",
     "predeploy": [
