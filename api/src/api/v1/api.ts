@@ -11,7 +11,7 @@ router.get('/version', async ctx => {
     };
 });
 
-router.get('/email', async ctx => {
+router.post('/email', async ctx => {
     await sendEmail(ctx);
 });
 

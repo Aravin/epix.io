@@ -7,7 +7,7 @@ export async function sendEmail(ctx: koa.Context) {
 
     mailService.setApiKey(process.env.SENDGRID_API_KEY as string);
 
-    const body = ctx.body;
+    const body = ctx.request.body;
 
     const msg: MailDataRequired = {
         to: body.to,

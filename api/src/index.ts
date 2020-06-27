@@ -4,6 +4,7 @@ import * as functions from 'firebase-functions';
 
 import koa from 'koa';
 import Router from 'koa-router';
+import bodyparser from 'koa-bodyparser';
 import dotenv from 'dotenv';
 import cors from '@koa/cors';
 import moment from 'moment';
@@ -55,6 +56,7 @@ app
             return;
         }
     })
+    .use(bodyparser())
     .use(v1Router.routes())
     .use(router.allowedMethods())
     .listen(3000);
