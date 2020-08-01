@@ -16,4 +16,3 @@ router.post('/email', async ctx => {
 });
 
 export { router as v1Router };
-

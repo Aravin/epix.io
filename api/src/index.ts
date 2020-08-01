@@ -5,6 +5,7 @@ import * as functions from 'firebase-functions';
 import koa from 'koa';
 import Router from 'koa-router';
 import bodyparser from 'koa-bodyparser';
+import koaRespond from 'koa-respond';
 import dotenv from 'dotenv';
 import cors from '@koa/cors';
 import moment from 'moment';
@@ -55,8 +56,10 @@ app
             ctx.body = 'Bad Request';
             return;
         }
+        await next();
     })
     .use(bodyparser())
+    .use(koaRespond())
     .use(v1Router.routes())
     .use(router.allowedMethods())
     .listen(3000);
