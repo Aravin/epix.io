@@ -1,18 +1,23 @@
-import Router from 'koa-router';
-import { sendEmail } from '../../services/email';
+// import Router from "koa-router";
+// import { sendEmail } from "../../services/email";
+// import { Context } from "koa";
 
-const router = new Router();
+// const router = new Router();
 
-router.prefix('/v1');
+// router.prefix("/v1");
 
-router.get('/version', async ctx => {
-    ctx.body = {
-        version: process.env.VERSION
-    };
-});
+// router.get("/version", async (ctx: any) => {
+//     return ctx.ok({
+//         version: process.env.VERSION,
+//     });
+// });
 
-router.post('/email', async ctx => {
-    await sendEmail(ctx);
-});
+// router.post("/email", async (ctx) => {
+//     await sendEmail(ctx);
+// });
 
-export { router as v1Router };
+// router.post("/test", async (ctx: any) => {
+//     return ctx.ok("Hi");
+// });
+
+// export { router as v1Router };

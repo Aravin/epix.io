@@ -1,0 +1,139 @@
+[debug] [2020-08-02T05:34:25.876Z] ----------------------------------------------------------------------
+[debug] [2020-08-02T05:34:25.878Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\itara\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-08-02T05:34:25.879Z] CLI Version:   8.6.0
+[debug] [2020-08-02T05:34:25.879Z] Platform:      win32
+[debug] [2020-08-02T05:34:25.879Z] Node Version:  v12.13.1
+[debug] [2020-08-02T05:34:25.880Z] Time:          Sun Aug 02 2020 11:04:25 GMT+0530 (India Standard Time)
+[debug] [2020-08-02T05:34:25.880Z] ----------------------------------------------------------------------
+[debug] [2020-08-02T05:34:25.880Z] 
+[debug] [2020-08-02T05:34:25.890Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-08-02T05:34:25.891Z] > authorizing via signed-in user
+[debug] [2020-08-02T05:34:25.891Z] [iam] checking project epix-io for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-08-02T05:34:25.894Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-08-02T05:34:25.894Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-08-02T05:34:26.354Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:34:27 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-02T05:34:26.365Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/epix-io:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-08-02T05:34:27.750Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:34:28 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1128","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-02T05:34:27.759Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/epix-io/serviceAccounts/epix-io@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2020-08-02T05:34:29.376Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:34:30 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-02T05:34:29.378Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/epix-io  
+ 
+[debug] [2020-08-02T05:34:29.857Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:34:30 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[warn] !  functions: package.json indicates an outdated version of firebase-functions.
+Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[info] 
+[info] === Deploying to 'epix-io'...
+[info] 
+[info] i  deploying functions, hosting 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] +  functions: Finished running predeploy script. 
+[debug] [2020-08-02T05:34:45.761Z] > [functions] package.json contents: {
+  "name": "epix-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "10"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "@sendgrid/mail": "^7.2.1",
+    "@types/helmet": "0.0.47",
+    "@types/koa-router": "^7.4.1",
+    "aws-sdk": "^2.720.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^8.12.1",
+    "firebase-functions": "^3.7.0",
+    "helmet": "^3.23.3",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-respond": "^2.1.0",
+    "koa-router": "^9.0.1",
+    "moment": "^2.27.0",
+    "nodemailer": "^6.4.10"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.7",
+    "@types/dotenv": "^8.2.0",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/koa": "^2.11.3",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa__cors": "^3.0.1",
+    "@types/node": "^14.0.26",
+    "@types/nodemailer": "^6.4.0"
+  }
+}
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2020-08-02T05:34:48.375Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/epix-io/services/cloudfunctions.googleapis.com  
+ 
+[debug] [2020-08-02T05:34:48.376Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/epix-io/services/runtimeconfig.googleapis.com  
+ 
+[debug] [2020-08-02T05:34:48.377Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/epix-io/services/cloudbuild.googleapis.com  
+ 
+[debug] [2020-08-02T05:34:50.985Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:34:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-02T05:34:51.066Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:34:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2020-08-02T05:34:51.168Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:34:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2020-08-02T05:34:51.170Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/epix-io/adminSdkConfig  
+ 
+[debug] [2020-08-02T05:34:51.922Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:34:52 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-02T05:34:51.926Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/api-v1-epix/versions  
+ {"config":{"rewrites":[{"glob":"**","function":"api"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-08-02T05:34:54.174Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:34:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  functions: preparing api directory for uploading... 
+[debug] [2020-08-02T05:34:54.179Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/epix-io/configs  
+ 
+[debug] [2020-08-02T05:34:55.041Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:34:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  functions: packaged api (48.93 KB) for uploading 
+[debug] [2020-08-02T05:34:55.547Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/epix-io/locations/-/functions  
+ 
+[debug] [2020-08-02T05:34:56.536Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:34:57 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-02T05:34:56.540Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/epix-io/locations/us-central1/functions:generateUploadUrl  
+ 
+[debug] [2020-08-02T05:34:57.711Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:34:58 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-02T05:34:57.713Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-2279bdd8-4ea2-44a1-bdba-278e616768fe/15e7fd4e-0604-48af-af7d-76317ee3b7f8.zip?GoogleAccessId=service-972560674140@gcf-admin-robot.iam.gserviceaccount.com&Expires=1596348298&Signature=emU6jlz%2F7%2Bm%2F1lSvIK2EbOyUzf4giAGGQu1dkhEYq5HiDGaj9tAzIA%2B0vMcDjwgrxAs4iTt15hBvIoKFcu254nZRoyMxg9Ed%2BbzkEkMYJyIfbvTMW5ltSASCm2T1e%2F%2FuSkmuWTZ%2BX8HIc5a%2FJJNeRHTLjhPKsyB3LyXvvluVcZNIsU8Hkf1fy84wRo1cINu5s7PW6aT0DH7o48CXBB8HVAGtFPeZWsDFKz%2B0vXEH7mJQfTpTKGtBOGrWFKuGYx%2B9sPZwMFjHRz8W3fL5wSsV42TFDm1qWUG1F8FfqeOd5J7DCpKpOhsszFcZmkKcgdiZqVBfYpnNIRNxH%2FZ7h2DpQQ%3D%3D  
+ <request body omitted>
+[debug] [2020-08-02T05:34:59.591Z] <<< HTTP RESPONSE 200 {"x-guploader-uploadid":"AAANsUmqisdY3anDQzAm8N0N0DJfoNZUgKNLSMJjyKHCyGaHlCy3zybFT6fEPNsyaCyJH8RJLhXsLHxsDi749v_TCGY","etag":"\"2b7add2bfd4067b38a00b4e2cddedbba\"","x-goog-generation":"1596346500410607","x-goog-metageneration":"1","x-goog-hash":"crc32c=5ttNlA==, md5=K3rdK/1AZ7OKALTizd7bug==","x-goog-stored-content-length":"50103","x-goog-stored-content-encoding":"identity","vary":"Origin","content-length":"0","date":"Sun, 02 Aug 2020 05:35:00 GMT","server":"UploadServer","content-type":"text/html; charset=UTF-8","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""}
+[info] +  functions: api folder uploaded successfully 
+[info] i  hosting[api-v1-epix]: beginning deploy... 
+[info] i  hosting[api-v1-epix]: found 5 files in api/dist 
+[debug] [2020-08-02T05:34:59.663Z] [hosting] hash cache [YXBpXGRpc3Q] stored for 5 files
+[debug] [2020-08-02T05:34:59.664Z] [hosting][hash queue][FINAL] {"max":19,"min":10,"avg":13.8,"active":0,"complete":5,"success":5,"errored":0,"retried":0,"total":5,"elapsed":26}
+[debug] [2020-08-02T05:34:59.665Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/api-v1-epix/versions/cc4028864e62d2b5:populateFiles  
+ <request body omitted>
+[debug] [2020-08-02T05:35:01.315Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 02 Aug 2020 05:35:02 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-02T05:35:01.315Z] [hosting][populate queue][FINAL] {"max":1657,"min":1657,"avg":1657,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1657}
+[debug] [2020-08-02T05:35:01.316Z] [hosting] uploads queued: 0
+[debug] [2020-08-02T05:35:01.316Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1596346501316}
+[info] +  hosting[api-v1-epix]: file upload complete 
+[debug] [2020-08-02T05:35:01.317Z] [hosting] deploy completed after 1722ms
+[info] i  functions: updating Node.js 10 function api(us-central1)... 
+[debug] [2020-08-02T05:35:01.322Z] Trigger is:  {"httpsTrigger":{}}
+[info] 
+The following functions are found in your project but do not exist in your local source code:
+	app(us-central1)
+
+If you are renaming a function or changing its region, it is recommended that you create the new function first before deleting the old one to prevent event loss. For more info, visit https://firebase.google.com/docs/functions/manage-functions#modify
+

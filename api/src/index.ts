@@ -1,67 +1,37 @@
-import crypto from 'crypto';
+// import crypto from 'crypto';
 
 import * as functions from 'firebase-functions';
-
-import koa from 'koa';
-import Router from 'koa-router';
-import bodyparser from 'koa-bodyparser';
-import koaRespond from 'koa-respond';
+import express from 'express';
+import bodyParser from 'body-parser';
+import helmet from 'helmet';
+import cors from 'cors';
 import dotenv from 'dotenv';
-import cors from '@koa/cors';
-import moment from 'moment';
-
-import { v1Router } from './api/v1/api';
+import { sendEmail } from './services/email';
+import { authentication } from './middleware/authentication';
 
 dotenv.config();
 
-const app = new koa();
-const router = new Router();
+const app = express();
+const port = 3000;
 
-app
-    .use(cors())
-    .use(async (ctx, next) => {
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
 
-        if (ctx.header && ctx.header['x-api-key'] && ctx.header['x-api-request-time']) {
-            const requestKey: string[] = (ctx.header['x-api-key'] as string).split('.');
-            const keyToValidate = process.env.API_SECRET_KEY as string;
+// parse application/json
+app.use(bodyParser.json())
 
-            const requestTime = ctx.header['x-api-request-time'];
+// Automatically allow cross-origin requests
+app.use(cors({ origin: true }));
+// app.use(helmet());
+app.use(authentication);
 
-            if (requestKey.length !== 2) {
-                ctx.status = 401;
-                return;
-            }
-            if (crypto.createHash('md5').update(requestKey[0]).digest('hex')
-                !== crypto.createHash('md5').update(keyToValidate).digest('hex')) {
-                ctx.status = 401;
-                return;
-            }
-            if (requestKey[1]
-                !== crypto.createHash('md5').update(requestTime).digest('hex')) {
-                ctx.status = 401;
-                return;
-            }
-            if (!moment(requestTime).isValid() || 
-                (Math.abs(moment(requestTime).diff(moment.utc()) / 1000) > (parseInt(process.env.API_REQUEST_BUFFER as string, 10)) )) {
-                ctx.status = 401;
-                return;
-            }
-            
+app.get('/v1/version', (req, res) => res.send({ version: process.env.VERSION }));
 
-            await next();
-        }
-        else
-        {
-            ctx.status = 400;
-            ctx.body = 'Bad Request';
-            return;
-        }
-        await next();
-    })
-    .use(bodyparser())
-    .use(koaRespond())
-    .use(v1Router.routes())
-    .use(router.allowedMethods())
-    .listen(3000);
+app.post('/v1/email', (req, res) => sendEmail(req, res));
 
-exports.api = functions.https.onRequest(app.callback());
+app.all('/*', (req, res) => res.status(404).send('Invalid Path'))
+
+app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
+
+// Expose Express API as a single Cloud Function:
+exports.api = functions.https.onRequest(app);
