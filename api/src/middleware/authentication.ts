@@ -11,17 +11,17 @@ export async function authentication(req: e.Request, res: e.Response, next: e.Ne
     if (isInvalidString(requestTime)
         || isInvalidString(requestToken)
         || moment.utc().diff(moment.utc(requestTime), 'seconds') > parseInt(process.env.API_REQUEST_BUFFER || '1000', 10)) {
-        return res.status(401).send('401 Unauthorized');
+        return res.status(401).send('401 Unauthorized - Request Time Mismatch');
     };
 
     const hashedRequestTime = crypto.createHash('md5').update(requestTime).digest('hex');
-    const hashedHostName = crypto.createHash('md5').update(req.hostname).digest('hex');
+    const hashedHostName = crypto.createHash('md5').update('epix.io').digest('hex');
     const secretKey = hashedHostName + '.' + hashedRequestTime;
     const serverKey = crypto.createHash('md5').update(secretKey).digest('hex');
     console.log(serverKey)
 
     if (serverKey !== requestToken) {
-        return res.status(401).send('401 Unauthorized');
+        return res.status(401).send('401 Unauthorized - Invalid Token');
     };
     next();
 }
