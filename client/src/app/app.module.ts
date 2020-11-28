@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +16,6 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +26,7 @@ import { AngularFireAnalyticsModule, ScreenTrackingService, UserTrackingService 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     LayoutModule,
     SharedModule,
