@@ -55,7 +55,8 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "./node_modules/jsoneditor/dist/jsoneditor.min.js"
+              "./node_modules/jsoneditor/dist/jsoneditor.min.js",
+              "./node_modules/ace-builds/src-min-noconflict/ace.js"
             ]
           },
           "configurations": {

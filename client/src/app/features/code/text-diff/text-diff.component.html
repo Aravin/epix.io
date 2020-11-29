@@ -1,0 +1,55 @@
+<section class="section">
+  <div class="container">
+
+    <!-- page heading -->
+    <div class="columns">
+      <div class="column">
+        <h1 class="title">Text Compare</h1>
+        <!-- <h2 class="subtitle">Read/Parse/Format JSON</h2> -->
+        <hr>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="is-align-self-center card notification is-warning"  *ngIf="isIdentical">
+          <button class="delete"></button>
+          The two files are identical
+      </div>
+    </div>
+
+    <div class="columns is-flex is-vcentered" >
+
+      <!-- column 1 -->
+      <div class="column" *ngIf="showResult">
+        <div id="diff-result">
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="is-align-self-center">
+        <span>
+          <button class="button is-dark" (click)="compareText()" [disabled] = "!editorLeft.getValue() || !editorRight.getValue()"> Compare Text 🔀 </button>
+        </span>
+      </div>
+    </div>
+
+
+    <div class="columns is-flex is-vcentered">
+
+      <!-- column 1 -->
+      <div class="column">
+        <div id="left-diff">
+        </div>
+      </div>
+
+      <!-- column 2 -->
+      <div class="column">
+        <div id="right-diff">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>

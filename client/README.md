@@ -31,8 +31,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 > ng build --prod
 
-> ng build --prod && ng run epix-io:server:production
-
 > gcloud builds submit --tag gcr.io/epix-io/epix-ssr
 
-> firebase deploy --only hosting
+> choose the docker in gcp

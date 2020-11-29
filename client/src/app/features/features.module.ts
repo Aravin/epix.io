@@ -9,6 +9,7 @@ import { MockResponseComponent } from './http/mock-response/mock-response.compon
 import { StatusCodesComponent } from './http/status-codes/status-codes.component';
 import { MobileAppsComponent } from './apps/mobile-apps/mobile-apps.component';
 import { JsonEditorComponent } from './json/json-editor/json-editor.component';
+import { TextDiffComponent } from './code/text-diff/text-diff.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { JsonEditorComponent } from './json/json-editor/json-editor.component';
     StatusCodesComponent,
     MobileAppsComponent,
     JsonEditorComponent,
+    TextDiffComponent,
   ],
   imports: [
     CommonModule,

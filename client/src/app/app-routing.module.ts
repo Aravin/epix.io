@@ -11,6 +11,7 @@ import { MobileAppsComponent } from './features/apps/mobile-apps/mobile-apps.com
 import { TermsPolicyComponent } from './pages/terms-policy/terms-policy.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { JsonEditorComponent } from './features/json/json-editor/json-editor.component';
+import { TextDiffComponent } from './features/code/text-diff/text-diff.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,9 @@ const routes: Routes = [
   },
   {
     path: 'json/editor', component: JsonEditorComponent, data: { title: 'JSON Viewer' }
+  },
+  {
+    path: 'code/diff', component: TextDiffComponent, data: { title: 'Text Compare' }
   },
   {
     path: '**', component: HomeComponent,
