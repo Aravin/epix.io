@@ -38,6 +38,7 @@
     "express": "^4.15.2",
     "firebase": "^7.14.4",
     "generate-password-browser": "^1.0.3",
+    "jsoneditor": "^9.1.4",
     "moment": "^2.29.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",

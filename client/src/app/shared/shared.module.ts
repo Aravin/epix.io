@@ -21,6 +21,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
@@ -51,11 +52,12 @@ const modules = [
   MatRadioModule,
   MatExpansionModule,
   MatChipsModule,
+  MatSnackBarModule,
 ];
 
 
 @NgModule({
-  declarations: [...components, TermsPolicyComponent, ContactComponent,],
+  declarations: [...components, TermsPolicyComponent, ContactComponent, ],
   imports: [...modules],
   exports: [...components, ...modules],
 })

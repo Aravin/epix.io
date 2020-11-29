@@ -8,7 +8,7 @@ import { EmiCalculatorComponent } from './finance/emi-calculator/emi-calculator.
 import { MockResponseComponent } from './http/mock-response/mock-response.component';
 import { StatusCodesComponent } from './http/status-codes/status-codes.component';
 import { MobileAppsComponent } from './apps/mobile-apps/mobile-apps.component';
-
+import { JsonEditorComponent } from './json/json-editor/json-editor.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { MobileAppsComponent } from './apps/mobile-apps/mobile-apps.component';
     MockResponseComponent,
     StatusCodesComponent,
     MobileAppsComponent,
+    JsonEditorComponent,
   ],
   imports: [
     CommonModule,

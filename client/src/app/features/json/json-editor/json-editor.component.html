@@ -1,0 +1,36 @@
+<section class="section">
+    <div class="container">
+  
+      <!-- page heading -->
+      <div class="columns">
+        <div class="column">
+          <h1 class="title">JSON Editor</h1>
+          <!-- <h2 class="subtitle">Read/Parse/Format JSON</h2> -->
+          <hr>
+        </div>
+      </div>
+  
+  
+      <div class="columns is-flex is-vcentered">
+  
+        <!-- column 1 -->
+        <div class="column">
+            <div id="jsoneditor"></div>
+        </div>
+
+        <div class="column is-1">
+          <div class="buttons">
+            <button class="button is-dark" (click)='setJSONPreview()'> Copy 👉 </button>
+            <button class="button is-dark" (click)='setJSON()'> 👈 Copy </button>
+          </div>
+      </div>
+
+        <!-- column 1 -->
+        <div class="column">
+            <div id="jsoneditorResult"></div>
+        </div>
+  
+      </div>
+    </div>
+  
+  </section>

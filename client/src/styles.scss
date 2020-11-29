@@ -76,3 +76,15 @@ body {
   margin: auto;
   margin-right: 0;
 }
+
+
+// json editor overrides
+.jsoneditor-menu {
+  background-color: hsl(171, 100%, 41%);
+}
+
+.jsoneditor {
+  border: thin solid hsl(0, 0%, 21%)
+}
+
+// end of json editor

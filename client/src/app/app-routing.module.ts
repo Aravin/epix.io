@@ -10,6 +10,7 @@ import { StatusCodesComponent } from './features/http/status-codes/status-codes.
 import { MobileAppsComponent } from './features/apps/mobile-apps/mobile-apps.component';
 import { TermsPolicyComponent } from './pages/terms-policy/terms-policy.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { JsonEditorComponent } from './features/json/json-editor/json-editor.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,9 @@ const routes: Routes = [
   },
   {
     path: 'contact', component: ContactComponent, data: { title: 'Contact' }
+  },
+  {
+    path: 'json/editor', component: JsonEditorComponent, data: { title: 'JSON Viewer' }
   },
   {
     path: '**', component: HomeComponent,
