@@ -31,6 +31,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 > ng build --prod
 
-> gcloud builds submit --tag gcr.io/epix-io/epix-ssr
+> gcloud builds submit --tag gcr.io/epix-io/epix-ssr  --timeout=9999
 
 > choose the docker in gcp

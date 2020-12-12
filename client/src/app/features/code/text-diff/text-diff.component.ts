@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Ace, edit } from 'ace-builds';
-import * as monaco from 'monaco-editor';
+import { PLATFORM_ID, Inject  } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-text-diff',
@@ -9,30 +9,38 @@ import * as monaco from 'monaco-editor';
 })
 export class TextDiffComponent implements OnInit {
 
-  editorLeft: Ace.Editor;
-  editorRight: Ace.Editor;
-  editorLeftResult: Ace.Editor;
-  editorRightResult: Ace.Editor;
+  isBrowser: boolean;
+
+  editorLeft: any;
+  editorRight: any;
+  editorLeftResult: any;
+  editorRightResult: any;
   isIdentical = false;
   showResult = false;
   leftTextCache: any;
   rightTextCache: any;
 
-  constructor() {}
+  constructor(@Inject(PLATFORM_ID) platformId) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   ngOnInit(): void {
 
-    // local storage
-    this.leftTextCache = JSON.parse(localStorage?.getItem('epix-text-left'));
-    this.rightTextCache = JSON.parse(localStorage?.getItem('epix-text-right'));
+    if (this.isBrowser) {
+      // local storage
+      this.leftTextCache = JSON.parse(localStorage?.getItem('epix-text-left'));
+      this.rightTextCache = JSON.parse(localStorage?.getItem('epix-text-right'));
 
-    this.editorLeft = edit('left-diff');
-    this.editorLeft.session.setOptions({wrap: 'free'});
-    this.editorLeft.setValue(this.leftTextCache || 'Paste one version of a text here.');
+      const ace = require('ace-builds');
 
-    this.editorRight = edit('right-diff');
-    this.editorRight.session.setOptions({wrap: 'free'});
-    this.editorRight.setValue(this.rightTextCache || 'Paste another version of the text here.');
+      this.editorLeft = ace.edit('left-diff');
+      this.editorLeft.session.setOptions({wrap: 'free'});
+      this.editorLeft.setValue(this.leftTextCache || 'Paste one version of a text here.');
+
+      this.editorRight = ace.edit('right-diff');
+      this.editorRight.session.setOptions({wrap: 'free'});
+      this.editorRight.setValue(this.rightTextCache || 'Paste another version of the text here.');
+    }
   }
 
   compareText() {
@@ -49,7 +57,8 @@ export class TextDiffComponent implements OnInit {
     localStorage?.setItem('epix-text-right', JSON.stringify(rightText));
 
     setTimeout(() => {
-      document.getElementById('diff-result').textContent = '';
+
+      const monaco = require('monaco-editor');
 
       const originalModel = monaco.editor.createModel(leftText, 'text/plain');
       const modifiedModel = monaco.editor.createModel(rightText, 'text/plain');
@@ -62,8 +71,6 @@ export class TextDiffComponent implements OnInit {
         original: originalModel,
         modified: modifiedModel
       });
-
-      monaco.editor.remeasureFonts();
 
     }, 100);
   }

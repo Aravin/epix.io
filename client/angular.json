@@ -55,8 +55,6 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "./node_modules/jsoneditor/dist/jsoneditor.min.js",
-              "./node_modules/ace-builds/src-min-noconflict/ace.js"
             ]
           },
           "configurations": {
@@ -77,8 +75,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "5mb",
+                  "maximumError": "7.5mb"
                 },
                 {
                   "type": "anyComponentStyle",

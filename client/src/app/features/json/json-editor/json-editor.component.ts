@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import * as jsoneditor from 'jsoneditor';
+import { Component, OnInit, Inject } from '@angular/core';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-json-editor',
@@ -12,12 +13,16 @@ export class JsonEditorComponent implements OnInit {
     modes: ['code', 'text', 'tree', 'preview']
   };
   json = {};
-  editor: jsoneditor;
-  editorResult: jsoneditor;
+  editor: any;
+  editorResult: any;
   jsonCache: any;
   jsonPreviewCache: any;
 
-  constructor() { }
+  isBrowser: boolean;
+
+  constructor( @Inject(PLATFORM_ID) platformId) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   ngOnInit(): void {
     // create the editor
@@ -30,15 +35,18 @@ export class JsonEditorComponent implements OnInit {
       String: 'Hello World'
     };
 
-    const container = document.getElementById('jsoneditor');
-    this.editor = new jsoneditor(container, this.jsonEditorOptions);
-    this.jsonCache = JSON.parse(localStorage?.getItem('epix-json'));
-    this.editor.set(this.jsonCache || this.json);
+    if (this.isBrowser) {
+      const jsoneditor =  require('jsoneditor');
+      const container = document.getElementById('jsoneditor');
+      this.editor = new jsoneditor(container, this.jsonEditorOptions);
+      this.jsonCache = JSON.parse(localStorage?.getItem('epix-json'));
+      this.editor.set(this.jsonCache || this.json);
 
-    const containerResult = document.getElementById('jsoneditorResult');
-    this.editorResult = new jsoneditor(containerResult, this.jsonEditorOptions);
-    this.jsonPreviewCache = JSON.parse(localStorage?.getItem('epix-json-preview'));
-    this.editorResult.set(this.jsonPreviewCache || this.json);
+      const containerResult = document.getElementById('jsoneditorResult');
+      this.editorResult = new jsoneditor(containerResult, this.jsonEditorOptions);
+      this.jsonPreviewCache = JSON.parse(localStorage?.getItem('epix-json-preview'));
+      this.editorResult.set(this.jsonPreviewCache || this.json);
+    }
   }
 
   private getJSON(): string {
