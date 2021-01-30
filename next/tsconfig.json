@@ -70,7 +70,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/_app.js"  ],
+, "pages/index.tsc"  ],
   "exclude": [
     "node_modules"
   ]
