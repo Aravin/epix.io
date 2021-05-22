@@ -97,7 +97,12 @@ export default function AppNavbar() {
             <div className="flex justify-between items-center border-b-2 border-gray-100 py-3 md:justify-start md:space-x-10 px-6">
               <div className="flex justify-start lg:w-0 lg:flex-1">
                 <a href="/">
-                  <span className="text-2xl text-bold">🌏 epix.io</span>
+                  <span className="text-2xl text-bold sr-only">epix.io</span>
+                  <img
+                    className="h-8 w-auto sm:h-10"
+                    src="/images/logo_green.png"
+                    alt=""
+                  />
                 </a>
               </div>
               <div className="-mr-2 -my-2 md:hidden">
@@ -310,8 +315,13 @@ export default function AppNavbar() {
                 <div className="pt-5 pb-6 px-5">
                   <div className="flex items-center justify-between">
                     <div>
-                      {/* <span className="text-xl text-bold">🌏 epix.io</span> */}
-                      <span>Menu</span>
+                    <div>
+                      <img
+                        className="h-8 w-auto"
+                        src="/images/logo_mobile.png"
+                        alt="Workflow"
+                      />
+                    </div>
                     </div>
                     <div className="-mr-2">
                       <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
