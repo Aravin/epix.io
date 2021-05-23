@@ -90,7 +90,7 @@ function classNames(...classes: any) {
 
 export default function AppNavbar() {
   return (
-    <Popover className="relative bg-white z-25">
+    <Popover className="relative bg-white">
       {({ open }) => (
         <>
           <div className="">
