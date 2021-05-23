@@ -89,7 +89,7 @@ export default function AppNavbar() {
     <Popover>
       {({ open }) => (
         <>
-          <div>
+          <div className="bg-white">
             <div className="flex justify-between items-center border-b-2 border-gray-100 py-3 md:justify-start md:space-x-10 px-6">
               <div className="flex justify-start lg:w-0 lg:flex-1">
                 <a href="/">
