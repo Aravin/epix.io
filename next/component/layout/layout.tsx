@@ -2,20 +2,28 @@ import * as React from "react";
 import Link from "next/link";
 import Head from "next/head";
 import AppNavbar from "./navbar";
+
 type LayoutProps = {
   title?: string;
+  subTitle?: string;
 };
-const layoutStyle = {};
 
 const bodyStyle = {
-  //margin: 10,
+  margin: 10,
 };
 
-const Layout: React.FunctionComponent<LayoutProps> = ({ children, title }) => (
-  <div style={layoutStyle}>
+const Layout: React.FunctionComponent<LayoutProps> = ({
+  children,
+  title,
+  subTitle,
+}) => (
+  <div>
     <Head>
       <title>{title ?? "Home - epix.io - All Service. One Place"}</title>
-      <meta name="title" content="."></meta>
+      <meta
+        name="title"
+        content={title ?? "Home - epix.io - All Service. One Place"}
+      ></meta>
       <meta charSet="utf-8" />
       <meta
         name="viewport"
@@ -30,12 +38,27 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children, title }) => (
     </Head>
     <AppNavbar></AppNavbar>
 
-    <div style={bodyStyle}>{children}</div>
+    <div className="m-3">
+      {title && (
+        <div>
+          <h2 className="text-2xl text-green-700 inline m-2 p-2">{title}</h2>
+          <span className="text-xl ml-4">/</span>
+          <h3 className="text-xl text-gray-700 ml-4 inline">{subTitle}</h3>
+        </div>
+      )}
+
+      <div className="m-2 p-2">{children}</div>
+    </div>
 
     <div className="flex-auto bg-gray-700 p-5 text-center mt-10">
       <span className="text-white text-sm">
         The epix.io is developed / maintained by{" "}
-        <a href="https://aravin.net" target="_blank" className="text-green-300">
+        <a
+          href="https://aravin.net"
+          rel="noopener"
+          target="_blank"
+          className="text-green-300"
+        >
           Aravind Appadurai
         </a>
         . This source code is licensed MIT.
