@@ -1,7 +1,7 @@
 {
   "hosting": {
     "public": "dist/epix-io/browser",
-    "site": "epix-beta",
+    "site": "epix-v2-ng",
     "ignore": [
       "firebase.json",
       "**/.*",
